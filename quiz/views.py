@@ -30,3 +30,7 @@ def create_question_view(request):
     return render(
         request, "quiz/question_form.html", {"form": form, "formset": formset}
     )
+
+
+def home(request):
+    return render(request, "quiz/home.html")

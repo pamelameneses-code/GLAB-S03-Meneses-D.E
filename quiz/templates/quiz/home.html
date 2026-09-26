@@ -1,0 +1,15 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div style="text-align: center; padding: 60px 20px;">
+    <h1 style="font-size: 36px; color: #4a2c11; margin-bottom: 15px; font-weight: bold;">
+        Sistema de Cuestionarios y Exámenes
+    </h1>
+    <p style="color: #6a4f3b; font-size: 16px; margin-bottom: 25px;">
+        Plataforma de evaluaciones de la institución.
+    </p>
+    <a href="{% url 'exam_list' %}" style="background-color: #8c532b; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block;">
+        Ver exámen﻿es
+    </a>
+</div>
+{% endblock %}
