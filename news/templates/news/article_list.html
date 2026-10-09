@@ -1,0 +1,36 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Noticias{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Noticias</h1>
+
+    {% if categories %}
+        <div class="mb-4">
+            {% for category in categories %}
+                <a href="{% url 'news:category_articles' category.slug %}" class="btn btn-sm btn-outline-secondary me-2 mb-2">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if articles %}
+        {% for article in articles %}
+            <article class="border rounded p-4 mb-4">
+                <h2 class="h4">
+                    <a href="{% url 'news:article_detail' article.slug %}" class="text-decoration-none text-dark">
+                        {{ article.title }}
+                    </a>
+                </h2>
+                <p class="text-muted mb-2">
+                    {{ article.author.name }} · {{ article.published_at|date:"d M Y" }} · {{ article.category.name }}
+                </p>
+                <p>{{ article.summary }}</p>
+                <a href="{% url 'news:article_detail' article.slug %}" class="btn btn-custom">Leer más</a>
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>No hay artículos publicados por el momento.</p>
+    {% endif %}
+{% endblock %}
