@@ -1,0 +1,1070 @@
+[
+  {
+    "case": "Browsable API root",
+    "method": "GET",
+    "url": "/api/",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "html_received": true
+    }
+  },
+  {
+    "case": "Create exam",
+    "method": "POST",
+    "url": "/api/exams/",
+    "request": {
+      "title": "LAB08 HTTP temporary",
+      "description": "External HTTP verification"
+    },
+    "status": 201,
+    "expected": 201,
+    "response": {
+      "id": 2,
+      "title": "LAB08 HTTP temporary",
+      "description": "External HTTP verification",
+      "created_at": "2026-10-26T16:59:13.445881-05:00"
+    }
+  },
+  {
+    "case": "List exams",
+    "method": "GET",
+    "url": "/api/exams/",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "count": 2,
+      "next": null,
+      "previous": null,
+      "results": [
+        {
+          "id": 1,
+          "title": "Examen de Álgebra - Unidad 1",
+          "description": "Evaluación sobre operaciones básicas y ecuaciones lineales",
+          "created_at": "2026-09-10T22:26:55.427153-05:00"
+        },
+        {
+          "id": 2,
+          "title": "LAB08 HTTP temporary",
+          "description": "External HTTP verification",
+          "created_at": "2026-10-26T16:59:13.445881-05:00"
+        }
+      ]
+    }
+  },
+  {
+    "case": "Exam detail",
+    "method": "GET",
+    "url": "/api/exams/2/",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "id": 2,
+      "title": "LAB08 HTTP temporary",
+      "description": "External HTTP verification",
+      "created_at": "2026-10-26T16:59:13.445881-05:00"
+    }
+  },
+  {
+    "case": "Update exam",
+    "method": "PATCH",
+    "url": "/api/exams/2/",
+    "request": {
+      "description": "Updated by HTTP client"
+    },
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "id": 2,
+      "title": "LAB08 HTTP temporary",
+      "description": "Updated by HTTP client",
+      "created_at": "2026-10-26T16:59:13.445881-05:00"
+    }
+  },
+  {
+    "case": "Create question",
+    "method": "POST",
+    "url": "/api/questions/",
+    "request": {
+      "exam": 2,
+      "text": "What is Django?",
+      "score": 2,
+      "choices": [
+        {
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    },
+    "status": 201,
+    "expected": 201,
+    "response": {
+      "id": 5,
+      "exam": 2,
+      "text": "What is Django?",
+      "score": 2,
+      "choices": [
+        {
+          "id": 17,
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "id": 18,
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  {
+    "case": "List questions",
+    "method": "GET",
+    "url": "/api/questions/",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "count": 5,
+      "next": null,
+      "previous": null,
+      "results": [
+        {
+          "id": 1,
+          "exam": 1,
+          "text": "¿Cuánto es 2 + 2?",
+          "score": 1,
+          "choices": [
+            {
+              "id": 1,
+              "text": "2",
+              "is_correct": false
+            },
+            {
+              "id": 2,
+              "text": "4",
+              "is_correct": true
+            },
+            {
+              "id": 3,
+              "text": "6",
+              "is_correct": false
+            },
+            {
+              "id": 4,
+              "text": "8",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "exam": 1,
+          "text": "¿Cuál es el resultado de resolver x + 5 = 10?",
+          "score": 1,
+          "choices": [
+            {
+              "id": 5,
+              "text": "x = 3",
+              "is_correct": false
+            },
+            {
+              "id": 6,
+              "text": "x = 5",
+              "is_correct": true
+            },
+            {
+              "id": 7,
+              "text": "x = 10",
+              "is_correct": false
+            },
+            {
+              "id": 8,
+              "text": "x = 15",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "exam": 1,
+          "text": "¿Cuánto es 10 - 3?",
+          "score": 1,
+          "choices": [
+            {
+              "id": 9,
+              "text": "5",
+              "is_correct": false
+            },
+            {
+              "id": 10,
+              "text": "7",
+              "is_correct": true
+            },
+            {
+              "id": 11,
+              "text": "9",
+              "is_correct": false
+            },
+            {
+              "id": 12,
+              "text": "13",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "exam": 1,
+          "text": "¿Cuánto es 6 x 2?",
+          "score": 1,
+          "choices": [
+            {
+              "id": 13,
+              "text": "10",
+              "is_correct": true
+            },
+            {
+              "id": 14,
+              "text": "12",
+              "is_correct": false
+            },
+            {
+              "id": 15,
+              "text": "14",
+              "is_correct": false
+            },
+            {
+              "id": 16,
+              "text": "18",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "exam": 2,
+          "text": "What is Django?",
+          "score": 2,
+          "choices": [
+            {
+              "id": 17,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 18,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "Question detail",
+    "method": "GET",
+    "url": "/api/questions/5/",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "id": 5,
+      "exam": 2,
+      "text": "What is Django?",
+      "score": 2,
+      "choices": [
+        {
+          "id": 17,
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "id": 18,
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  {
+    "case": "Update question",
+    "method": "PATCH",
+    "url": "/api/questions/5/",
+    "request": {
+      "score": 3
+    },
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "id": 5,
+      "exam": 2,
+      "text": "What is Django?",
+      "score": 3,
+      "choices": [
+        {
+          "id": 17,
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "id": 18,
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  {
+    "case": "Create choice",
+    "method": "POST",
+    "url": "/api/choices/",
+    "request": {
+      "question": 5,
+      "text": "Extra wrong option",
+      "is_correct": false
+    },
+    "status": 201,
+    "expected": 201,
+    "response": {
+      "id": 19,
+      "question": 5,
+      "text": "Extra wrong option",
+      "is_correct": false
+    }
+  },
+  {
+    "case": "List choices",
+    "method": "GET",
+    "url": "/api/choices/",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "count": 19,
+      "next": "http://127.0.0.1:8008/api/choices/?page=2",
+      "previous": null,
+      "results": [
+        {
+          "id": 1,
+          "question": 1,
+          "text": "2",
+          "is_correct": false
+        },
+        {
+          "id": 2,
+          "question": 1,
+          "text": "4",
+          "is_correct": true
+        },
+        {
+          "id": 3,
+          "question": 1,
+          "text": "6",
+          "is_correct": false
+        },
+        {
+          "id": 4,
+          "question": 1,
+          "text": "8",
+          "is_correct": false
+        },
+        {
+          "id": 5,
+          "question": 2,
+          "text": "x = 3",
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  {
+    "case": "Choice detail",
+    "method": "GET",
+    "url": "/api/choices/19/",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "id": 19,
+      "question": 5,
+      "text": "Extra wrong option",
+      "is_correct": false
+    }
+  },
+  {
+    "case": "Update choice",
+    "method": "PATCH",
+    "url": "/api/choices/19/",
+    "request": {
+      "text": "Updated wrong option"
+    },
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "id": 19,
+      "question": 5,
+      "text": "Updated wrong option",
+      "is_correct": false
+    }
+  },
+  {
+    "case": "Delete choice",
+    "method": "DELETE",
+    "url": "/api/choices/19/",
+    "request": null,
+    "status": 204,
+    "expected": 204,
+    "response": null
+  },
+  {
+    "case": "Missing required field",
+    "method": "POST",
+    "url": "/api/exams/",
+    "request": {},
+    "status": 400,
+    "expected": 400,
+    "response": {
+      "title": [
+        "Este campo es requerido."
+      ]
+    }
+  },
+  {
+    "case": "Incorrect field type",
+    "method": "POST",
+    "url": "/api/questions/",
+    "request": {
+      "exam": 2,
+      "text": "What is Django?",
+      "score": "abc",
+      "choices": [
+        {
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    },
+    "status": 400,
+    "expected": 400,
+    "response": {
+      "score": [
+        "Introduzca un número entero válido."
+      ]
+    }
+  },
+  {
+    "case": "Zero correct choices",
+    "method": "POST",
+    "url": "/api/questions/",
+    "request": {
+      "exam": 2,
+      "text": "What is Django?",
+      "score": 2,
+      "choices": [
+        {
+          "text": "Wrong",
+          "is_correct": false
+        }
+      ]
+    },
+    "status": 400,
+    "expected": 400,
+    "response": {
+      "choices": [
+        "A question must have exactly one correct choice."
+      ]
+    }
+  },
+  {
+    "case": "Two correct choices",
+    "method": "POST",
+    "url": "/api/questions/",
+    "request": {
+      "exam": 2,
+      "text": "What is Django?",
+      "score": 2,
+      "choices": [
+        {
+          "text": "A",
+          "is_correct": true
+        },
+        {
+          "text": "B",
+          "is_correct": true
+        }
+      ]
+    },
+    "status": 400,
+    "expected": 400,
+    "response": {
+      "choices": [
+        "A question must have exactly one correct choice."
+      ]
+    }
+  },
+  {
+    "case": "Protect correct choice",
+    "method": "DELETE",
+    "url": "/api/choices/17/",
+    "request": null,
+    "status": 400,
+    "expected": 400,
+    "response": {
+      "is_correct": "Cannot delete the only correct choice. Replace choices through the question endpoint."
+    }
+  },
+  {
+    "case": "Pagination fixture 1",
+    "method": "POST",
+    "url": "/api/questions/",
+    "request": {
+      "exam": 2,
+      "text": "Python pagination 1",
+      "score": 2,
+      "choices": [
+        {
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    },
+    "status": 201,
+    "expected": 201,
+    "response": {
+      "id": 6,
+      "exam": 2,
+      "text": "Python pagination 1",
+      "score": 2,
+      "choices": [
+        {
+          "id": 20,
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "id": 21,
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  {
+    "case": "Pagination fixture 2",
+    "method": "POST",
+    "url": "/api/questions/",
+    "request": {
+      "exam": 2,
+      "text": "Python pagination 2",
+      "score": 2,
+      "choices": [
+        {
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    },
+    "status": 201,
+    "expected": 201,
+    "response": {
+      "id": 7,
+      "exam": 2,
+      "text": "Python pagination 2",
+      "score": 2,
+      "choices": [
+        {
+          "id": 22,
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "id": 23,
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  {
+    "case": "Pagination fixture 3",
+    "method": "POST",
+    "url": "/api/questions/",
+    "request": {
+      "exam": 2,
+      "text": "Python pagination 3",
+      "score": 2,
+      "choices": [
+        {
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    },
+    "status": 201,
+    "expected": 201,
+    "response": {
+      "id": 8,
+      "exam": 2,
+      "text": "Python pagination 3",
+      "score": 2,
+      "choices": [
+        {
+          "id": 24,
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "id": 25,
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  {
+    "case": "Pagination fixture 4",
+    "method": "POST",
+    "url": "/api/questions/",
+    "request": {
+      "exam": 2,
+      "text": "Python pagination 4",
+      "score": 2,
+      "choices": [
+        {
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    },
+    "status": 201,
+    "expected": 201,
+    "response": {
+      "id": 9,
+      "exam": 2,
+      "text": "Python pagination 4",
+      "score": 2,
+      "choices": [
+        {
+          "id": 26,
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "id": 27,
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  {
+    "case": "Pagination fixture 5",
+    "method": "POST",
+    "url": "/api/questions/",
+    "request": {
+      "exam": 2,
+      "text": "Python pagination 5",
+      "score": 2,
+      "choices": [
+        {
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    },
+    "status": 201,
+    "expected": 201,
+    "response": {
+      "id": 10,
+      "exam": 2,
+      "text": "Python pagination 5",
+      "score": 2,
+      "choices": [
+        {
+          "id": 28,
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "id": 29,
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  {
+    "case": "Pagination fixture 6",
+    "method": "POST",
+    "url": "/api/questions/",
+    "request": {
+      "exam": 2,
+      "text": "Python pagination 6",
+      "score": 2,
+      "choices": [
+        {
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    },
+    "status": 201,
+    "expected": 201,
+    "response": {
+      "id": 11,
+      "exam": 2,
+      "text": "Python pagination 6",
+      "score": 2,
+      "choices": [
+        {
+          "id": 30,
+          "text": "Web framework",
+          "is_correct": true
+        },
+        {
+          "id": 31,
+          "text": "Database",
+          "is_correct": false
+        }
+      ]
+    }
+  },
+  {
+    "case": "Filter by exam",
+    "method": "GET",
+    "url": "/api/questions/?exam=2",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "count": 7,
+      "next": "http://127.0.0.1:8008/api/questions/?exam=2&page=2",
+      "previous": null,
+      "results": [
+        {
+          "id": 5,
+          "exam": 2,
+          "text": "What is Django?",
+          "score": 3,
+          "choices": [
+            {
+              "id": 17,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 18,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "exam": 2,
+          "text": "Python pagination 1",
+          "score": 2,
+          "choices": [
+            {
+              "id": 20,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 21,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "exam": 2,
+          "text": "Python pagination 2",
+          "score": 2,
+          "choices": [
+            {
+              "id": 22,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 23,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "exam": 2,
+          "text": "Python pagination 3",
+          "score": 2,
+          "choices": [
+            {
+              "id": 24,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 25,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "exam": 2,
+          "text": "Python pagination 4",
+          "score": 2,
+          "choices": [
+            {
+              "id": 26,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 27,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "Search question text",
+    "method": "GET",
+    "url": "/api/questions/?exam=2&search=Python",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "count": 6,
+      "next": "http://127.0.0.1:8008/api/questions/?exam=2&page=2&search=Python",
+      "previous": null,
+      "results": [
+        {
+          "id": 6,
+          "exam": 2,
+          "text": "Python pagination 1",
+          "score": 2,
+          "choices": [
+            {
+              "id": 20,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 21,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "exam": 2,
+          "text": "Python pagination 2",
+          "score": 2,
+          "choices": [
+            {
+              "id": 22,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 23,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "exam": 2,
+          "text": "Python pagination 3",
+          "score": 2,
+          "choices": [
+            {
+              "id": 24,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 25,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "exam": 2,
+          "text": "Python pagination 4",
+          "score": 2,
+          "choices": [
+            {
+              "id": 26,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 27,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "exam": 2,
+          "text": "Python pagination 5",
+          "score": 2,
+          "choices": [
+            {
+              "id": 28,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 29,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "Second page",
+    "method": "GET",
+    "url": "/api/questions/?exam=2&page=2",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "count": 7,
+      "next": null,
+      "previous": "http://127.0.0.1:8008/api/questions/?exam=2",
+      "results": [
+        {
+          "id": 10,
+          "exam": 2,
+          "text": "Python pagination 5",
+          "score": 2,
+          "choices": [
+            {
+              "id": 28,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 29,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "exam": 2,
+          "text": "Python pagination 6",
+          "score": 2,
+          "choices": [
+            {
+              "id": 30,
+              "text": "Web framework",
+              "is_correct": true
+            },
+            {
+              "id": 31,
+              "text": "Database",
+              "is_correct": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "Browsable questions",
+    "method": "GET",
+    "url": "/api/questions/",
+    "request": null,
+    "status": 200,
+    "expected": 200,
+    "response": {
+      "html_received": true
+    }
+  },
+  {
+    "case": "Delete question",
+    "method": "DELETE",
+    "url": "/api/questions/5/",
+    "request": null,
+    "status": 204,
+    "expected": 204,
+    "response": null
+  },
+  {
+    "case": "Deleted question",
+    "method": "GET",
+    "url": "/api/questions/5/",
+    "request": null,
+    "status": 404,
+    "expected": 404,
+    "response": {
+      "detail": "No Question matches the given query."
+    }
+  },
+  {
+    "case": "Delete exam and temporary data",
+    "method": "DELETE",
+    "url": "/api/exams/2/",
+    "request": null,
+    "status": 204,
+    "expected": 204,
+    "response": null
+  }
+]
