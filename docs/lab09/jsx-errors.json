@@ -1,0 +1,23 @@
+[
+  {
+    "test": "class instead of className",
+    "source": "export default function App() { return <h1 class=\"title\">JSX class test</h1> }",
+    "messages": [
+      "Invalid DOM property `%s`. Did you mean `%s`? class className"
+    ]
+  },
+  {
+    "test": "two root nodes",
+    "source": "export default function App() { return (<h1>First root</h1><p>Second root</p>) }",
+    "messages": [
+      "[plugin:vite:oxc] Transform failed with 1 error:\n\n[PARSE_ERROR] Adjacent JSX elements must be wrapped in an enclosing tag.\n   ╭─[ src/App.jsx:1:60 ]\n   │\n 1 │ export default function App() { return (<h1>First root</h1><p>Second root</p>) }\n   │                                                            ┬  \n   │                                                            ╰── \n   │ \n   │ Help: Did you want a JSX fragment `<>...</>`?\n───╯\nC:/Users/pamel/GLAB-S03-Meneses/frontend/src/App.jsx\n    at transformWithOxc (file:///C:/Users/pamel/GLAB-S03-Meneses/frontend/node_modules/vite/dist/node/chunks/node.js:7618:19)\n    at TransformPluginContext.transform (file:///C:/Users/pamel/GLAB-S03-Meneses/frontend/node_modules/vite/dist/node/chunks/node.js:7690:26)\n    at EnvironmentPluginContainer.transform (file:///C:/Users/pamel/GLAB-S03-Meneses/frontend/node_modules/vite/dist/node/chunks/node.js:8582:51)\n    at async loadAndTransform (file:///C:/Users/pamel/GLAB-S03-Meneses/frontend/node_modules/vite/dist/node/chunks/node.js:20155:26)\n    at async viteTransformMiddleware (file:///C:/Users/pamel/GLAB-S03-Meneses/frontend/node_modules/vite/dist/node/chunks/node.js:20375:20)\nClick outside, press Esc key, or fix the code to dismiss.\nYou can also disable this overlay by setting server.hmr.overlay to false in vite.config.js."
+    ]
+  },
+  {
+    "test": "missing key in map",
+    "source": "export default function App() { return <ul>{['First movie', 'Second movie'].map((title) => <li>{title}</li>)}</ul> }",
+    "messages": [
+      "Each child in a list should have a unique \"key\" prop.%s%s See https://react.dev/link/warning-keys for more information. \n\nCheck the render method of `App`. "
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+.poster-wrap { position: relative; overflow: hidden; border-radius: 7px; background: #17212b; aspect-ratio: 2 / 3; }
+.poster-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.movie-card:hover .poster-wrap img { transform: scale(1.03); }
+.movie-rating { position: absolute; top: 12px; right: 12px; background: #0a1019df; color: #f4d283; border: 1px solid #ffffff20; border-radius: 4px; padding: 6px 9px; font-size: 12px; }
+.movie-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-top: 18px; }
+.movie-title-row h3 { font-size: 17px; margin: 0; line-height: 1.35; }
+.classification { color: var(--muted); border: 1px solid var(--border); padding: 3px 5px; border-radius: 3px; font-size: 9px; white-space: nowrap; }
+.movie-synopsis { color: var(--muted); font-size: 12px; line-height: 1.7; min-height: 62px; }
+.showtimes-label { color: #8994a4; font-size: 9px; letter-spacing: 1.5px; margin: 18px 0 10px; }
+.showtimes { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
+.showtimes li { font-size: 11px; border: 1px solid #343c48; border-radius: 4px; padding: 7px 10px; color: #d6dce5; }

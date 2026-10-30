@@ -1,0 +1,10 @@
+{
+  "title": "Órbita Cine | Cartelera",
+  "cards": 8,
+  "showtimes": 24,
+  "loadedImages": true,
+  "consoleMessages": [],
+  "navigationMovies": true,
+  "navigationContact": true,
+  "mobileOverflow": false
+}

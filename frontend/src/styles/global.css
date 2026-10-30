@@ -1,0 +1,8 @@
+:root { font-family: Arial, sans-serif; color: #eef1f6; background: #0a1019; font-synthesis: none; text-rendering: optimizeLegibility; --accent: #efc17c; --muted: #9ca7b7; --border: #252e3a; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+h1, h2, h3 { font-weight: 700; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }

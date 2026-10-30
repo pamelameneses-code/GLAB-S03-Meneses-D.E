@@ -1,0 +1,8 @@
+.site-header { min-height: 88px; padding: 20px 6%; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--border); }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 23px; font-weight: 800; letter-spacing: 2px; text-decoration: none; }
+.brand span { color: var(--accent); font-size: 34px; }
+.brand small { font-size: 11px; color: var(--muted); }
+.site-header nav { display: flex; gap: 28px; font-size: 14px; }
+.site-header nav a { color: var(--muted); text-decoration: none; }
+.site-header nav a:hover { color: var(--accent); }
+@media (max-width: 540px) { .site-header { flex-direction: column; gap: 10px; } }

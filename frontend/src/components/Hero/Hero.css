@@ -1,0 +1,12 @@
+.hero { min-height: 520px; position: relative; display: flex; align-items: center; overflow: hidden; background: #0b1824; }
+.hero-image { position: absolute; right: 0; top: 0; width: 65%; height: 100%; object-fit: cover; object-position: center 40%; }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #0a1019 7%, #0a1019ee 32%, #0a101933 100%); }
+.hero-content { position: relative; z-index: 1; max-width: 650px; padding: 60px 0 60px 6vw; }
+.eyebrow { color: var(--accent); letter-spacing: 3px; font-size: 11px; font-weight: 700; }
+.hero-meta { color: #c3c9d1; font-size: 12px; margin-top: 28px; }
+.hero-meta span { margin-left: 18px; color: #f4d283; }
+.hero h1 { font-size: clamp(40px, 5.5vw, 72px); line-height: 1.06; max-width: 600px; margin: 18px 0; letter-spacing: -2px; }
+.hero-synopsis { max-width: 410px; line-height: 1.8; font-size: 14px; color: #bbc5d2; }
+.primary-link { display: inline-flex; gap: 40px; margin-top: 20px; padding: 15px 22px; background: var(--accent); color: #111; font-weight: 700; font-size: 13px; text-decoration: none; border-radius: 4px; }
+.hero-caption { position: absolute; bottom: 22px; right: 6%; z-index: 1; font-size: 9px; letter-spacing: 2px; color: #c7d2de; }
+@media (max-width: 540px) { .hero { min-height: 480px; } .hero-image { width: 100%; opacity: .65; } .hero-content { padding-right: 6vw; } .hero-caption { display: none; } }
