@@ -1,0 +1,145 @@
+{
+  "checks": [
+    {
+      "name": "Initial movie cards",
+      "expected": 8,
+      "actual": 8,
+      "passed": true
+    },
+    {
+      "name": "All poster images loaded",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Debounce keeps full list while typing",
+      "expected": 8,
+      "actual": 8,
+      "passed": true
+    },
+    {
+      "name": "Debounced result",
+      "expected": [
+        "Midnight in Tokyo"
+      ],
+      "actual": [
+        "Midnight in Tokyo"
+      ],
+      "passed": true
+    },
+    {
+      "name": "Input events before debounce",
+      "expected": 5,
+      "actual": 5,
+      "passed": true
+    },
+    {
+      "name": "Filter events after pause",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "name": "Child callback updates parent favorites",
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    {
+      "name": "Stored favorite ids",
+      "expected": [
+        1,
+        8
+      ],
+      "actual": [
+        1,
+        8
+      ],
+      "passed": true
+    },
+    {
+      "name": "Favorites survive reload",
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    {
+      "name": "Removing favorite updates parent and storage",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "name": "Banner call to action filters ignoring case",
+      "expected": [
+        "Ocean of Secrets"
+      ],
+      "actual": [
+        "Ocean of Secrets"
+      ],
+      "passed": true
+    },
+    {
+      "name": "Call to action navigates to results",
+      "expected": "#movies",
+      "actual": "#movies",
+      "passed": true
+    },
+    {
+      "name": "Filtering retains favorite ids",
+      "expected": [
+        8
+      ],
+      "actual": [
+        8
+      ],
+      "passed": true
+    },
+    {
+      "name": "Empty state has no cards",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "Empty state explains searched text",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Whitespace query restores full list",
+      "expected": 8,
+      "actual": 8,
+      "passed": true
+    },
+    {
+      "name": "Invalid saved data recovers without crash",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow on mobile",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "No console errors or warnings",
+      "expected": [],
+      "actual": [],
+      "passed": true
+    }
+  ],
+  "debounceMessages": [
+    "[search:input] T",
+    "[search:input] To",
+    "[search:input] Tok",
+    "[search:input] Toky",
+    "[search:input] Tokyo",
+    "[search:filter] Tokyo"
+  ],
+  "consoleErrors": []
+}

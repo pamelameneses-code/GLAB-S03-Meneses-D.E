@@ -9,3 +9,4 @@
 .showtimes-label { color: #8994a4; font-size: 9px; letter-spacing: 1.5px; margin: 18px 0 10px; }
 .showtimes { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
 .showtimes li { font-size: 11px; border: 1px solid #343c48; border-radius: 4px; padding: 7px 10px; color: #d6dce5; }
+.favorite-button { width: 100%; margin-top: 16px; }

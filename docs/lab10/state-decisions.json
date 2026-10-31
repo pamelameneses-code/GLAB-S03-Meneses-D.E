@@ -1,0 +1,44 @@
+[
+  [
+    "favoriteIds",
+    "App / useState",
+    "Lo comparten todas las tarjetas y el contador; App coordina sus cambios.",
+    "Sí, localStorage"
+  ],
+  [
+    "searchQuery",
+    "App / useState",
+    "Consulta aplicada después del retardo o del envío; conecta el buscador del banner con MovieList.",
+    "No"
+  ],
+  [
+    "searchText",
+    "MovieSearch / useState",
+    "Texto inmediato de la entrada controlada, distinto de la consulta aplicada durante el retardo.",
+    "No"
+  ],
+  [
+    "timeoutRef",
+    "MovieSearch / useRef",
+    "Identificador del temporizador para cancelarlo; no afecta por sí mismo a la interfaz.",
+    "No"
+  ],
+  [
+    "filteredMovies",
+    "MovieList / dato derivado",
+    "Se calcula desde movies y searchQuery; guardarlo en estado duplicaría información.",
+    "No"
+  ],
+  [
+    "isFavorite",
+    "MovieList / prop derivada",
+    "Se calcula con favoriteIds.includes(movie.id) y se entrega a la tarjeta.",
+    "No"
+  ],
+  [
+    "movies",
+    "src/data/movies.js / constante",
+    "Cartelera del laboratorio 9; no cambia durante esta práctica.",
+    "Archivo del proyecto"
+  ]
+]

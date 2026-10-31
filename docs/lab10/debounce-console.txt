@@ -1,0 +1,6 @@
+[search:input] T
+[search:input] To
+[search:input] Tok
+[search:input] Toky
+[search:input] Tokyo
+[search:filter] Tokyo

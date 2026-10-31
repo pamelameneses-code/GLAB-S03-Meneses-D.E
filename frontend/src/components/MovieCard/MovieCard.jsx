@@ -1,5 +1,6 @@
+import Button from '../Button/Button.jsx'
 import './MovieCard.css'
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, isFavorite, onToggleFavorite }) {
   return (
     <article className="movie-card">
       <div className="poster-wrap">
@@ -12,6 +13,16 @@ export default function MovieCard({ movie }) {
       <ul className="showtimes" aria-label={'Horarios de ' + movie.title}>
         {movie.showtimes.map((showtime) => <li key={showtime}><time>{showtime}</time></li>)}
       </ul>
+      <Button
+        className="favorite-button"
+        variant={isFavorite ? 'selected' : 'secondary'}
+        aria-pressed={isFavorite}
+        aria-label={(isFavorite ? 'Quitar de favoritas: ' : 'Agregar a favoritas: ') + movie.title}
+        onClick={() => onToggleFavorite(movie.id)}
+      >
+        <span aria-hidden="true">{isFavorite ? '♥' : '♡'}</span>
+        {isFavorite ? 'En favoritas' : 'Agregar a favoritas'}
+      </Button>
     </article>
   )
 }

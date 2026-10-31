@@ -1,0 +1,6 @@
+.movie-search { max-width: 530px; margin-top: 26px; }
+.movie-search label { display: block; margin-bottom: 10px; font-size: 13px; font-weight: 700; }
+.search-controls { display: flex; gap: 8px; }
+.search-controls input { min-width: 0; flex: 1; }
+.search-controls .button { white-space: nowrap; }
+@media (max-width: 540px) { .search-controls { flex-direction: column; } .search-controls .button { align-self: flex-start; } }
