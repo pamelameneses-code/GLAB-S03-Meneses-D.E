@@ -4,3 +4,6 @@ __pycache__/
 
 .venv-lab08/
 .env
+/staticfiles/
+/media/
+/.venv/
