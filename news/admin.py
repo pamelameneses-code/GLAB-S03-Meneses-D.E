@@ -4,11 +4,15 @@ from .models import Category, Author, Article
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug')
+    list_filter = ('articles__is_published',)
+    search_fields = ('name', 'slug')
     prepopulated_fields = {'slug': ('name',)}
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('name',)
+    list_filter = ('articles__category',)
+    search_fields = ('name', 'bio')
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
