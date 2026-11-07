@@ -87,3 +87,29 @@ class NewsPortalTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(list(response.context["cl"].result_list), [self.author])
         self.assertTrue(response.context["cl"].has_active_filters)
+
+    def test_admin_can_save_an_existing_article_with_a_long_slug(self):
+        slug = "estudiantes-presentan-un-prototipo-de-monitoreo-ambiental"
+        Article.objects.filter(pk=self.article.pk).update(slug=slug)
+        self.client.force_login(get_user_model().objects.create_superuser(
+            username="news-admin", password="test-password"
+        ))
+        published_at = timezone.localtime(self.article.published_at)
+        response = self.client.post(
+            reverse("admin:news_article_change", args=[self.article.pk]),
+            {
+                "title": self.article.title,
+                "slug": slug,
+                "summary": self.article.summary,
+                "content": "Actualizado desde el panel de administración.",
+                "published_at_0": published_at.strftime("%d/%m/%Y"),
+                "published_at_1": published_at.strftime("%H:%M:%S"),
+                "is_published": "on",
+                "category": self.category.pk,
+                "author": self.author.pk,
+                "_save": "Guardar",
+            },
+        )
+        self.assertRedirects(response, reverse("admin:news_article_changelist"))
+        detail = self.client.get(reverse("news:article_detail", args=[slug]))
+        self.assertContains(detail, "Actualizado desde el panel de administración.")

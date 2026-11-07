@@ -17,7 +17,7 @@ class Author(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     summary = models.TextField()
     content = models.TextField()
     featured_image = models.ImageField(upload_to='articles/', blank=True, null=True)
