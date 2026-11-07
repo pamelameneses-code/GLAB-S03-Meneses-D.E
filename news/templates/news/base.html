@@ -1,0 +1,42 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Portada{% endblock %} | Portal de noticias</title>
+    <link rel="stylesheet" href="{% static 'news/portal.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="site-name" href="{% url 'news:article_list' %}">Portal de noticias</a>
+            <a href="{% url 'admin:index' %}">Administración</a>
+        </div>
+    </header>
+    <div class="container layout">
+        <main id="main-content">
+            {% block content %}{% endblock %}
+        </main>
+        <aside class="sidebar" aria-labelledby="categories-heading">
+            {% block sidebar %}
+                <h2 id="categories-heading">Categorías</h2>
+                <ul>
+                    {% for item in categories %}
+                        <li>
+                            <a href="{% url 'news:category_articles' item.slug %}"{% if item == category %} aria-current="page"{% endif %}>
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    {% empty %}
+                        <li>Aún no hay categorías.</li>
+                    {% endfor %}
+                </ul>
+            {% endblock %}
+        </aside>
+    </div>
+    <footer class="site-footer">
+        <div class="container">Laboratorio 06 · Desarrollo de Aplicaciones Empresariales</div>
+    </footer>
+</body>
+</html>
