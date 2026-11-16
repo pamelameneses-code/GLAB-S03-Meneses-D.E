@@ -1,0 +1,16 @@
+:root { font-family: Arial, sans-serif; color: #eef1f6; background: #0a1019; font-synthesis: none; text-rendering: optimizeLegibility; --accent: #efc17c; --muted: #9ca7b7; --border: #252e3a; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+h1, h2, h3 { font-weight: 700; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+input, button { font: inherit; }
+input[type='search'] { padding: 13px 14px; color: #eef1f6; background: #111c2c; border: 1px solid #526076; border-radius: 5px; font-size: 14px; }
+input::placeholder { color: #a5b0c0; }
+.form-hint { color: var(--muted); font-size: 11px; line-height: 1.5; margin: 9px 0 0; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+
+.favorite-count { color: var(--accent); font-weight: 600; font-size: .875rem; white-space: nowrap; }
+.site-header { flex-wrap: wrap; }
+.movie-search + .button { margin-top: 12px; }

@@ -19,12 +19,14 @@ INSTALLED_APPS = [
     'library',
     'quiz',
     'rest_framework',
+    'corsheaders',
     'movies',
     'news',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -32,6 +34,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:5190']
+CORS_URLS_REGEX = r'^/api/'
 
 ROOT_URLCONF = 'config.urls'
 

@@ -4,3 +4,5 @@ __pycache__/
 
 .venv-lab08/
 .env
+/lab12/frontend/node_modules/
+/lab12/frontend/dist/
