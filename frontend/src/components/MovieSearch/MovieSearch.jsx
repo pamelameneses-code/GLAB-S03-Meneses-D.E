@@ -1,31 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
 import Button from '../Button/Button.jsx'
 import './MovieSearch.css'
 
-export default function MovieSearch({ onSearch }) {
-  const [searchText, setSearchText] = useState('')
-  const timeoutRef = useRef(null)
-
-  useEffect(() => {
-    timeoutRef.current = setTimeout(() => {
-      console.info('[search:filter]', searchText.trim())
-      onSearch(searchText.trim())
-    }, 400)
-
-    return () => clearTimeout(timeoutRef.current)
-  }, [searchText, onSearch])
-
-  function handleChange(event) {
-    const nextText = event.target.value
-    console.info('[search:input]', nextText)
-    setSearchText(nextText)
-  }
-
+export default function MovieSearch({ searchText, onChange, onSubmit }) {
   function handleSubmit(event) {
     event.preventDefault()
-    clearTimeout(timeoutRef.current)
-    console.info('[search:submit]', searchText.trim())
-    onSearch(searchText.trim())
+    onSubmit()
     window.location.hash = 'movies'
   }
 
@@ -38,7 +17,7 @@ export default function MovieSearch({ onSearch }) {
           type="search"
           placeholder="Buscar por título…"
           value={searchText}
-          onChange={handleChange}
+          onChange={(event) => onChange(event.target.value)}
           aria-describedby="search-hint"
         />
         <Button type="submit" variant="primary">Buscar películas <span aria-hidden="true">↗</span></Button>

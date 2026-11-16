@@ -9,7 +9,5 @@
 .empty-state h3 { font-size: 23px; }
 .empty-state p { color: var(--muted); line-height: 1.7; overflow-wrap: anywhere; }
 @media (max-width: 540px) { .list-summary { text-align: left; } }
-.movie-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 38px 24px; }
-@media (max-width: 900px) { .movie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.movie-grid { display: grid; grid-template-columns: repeat(var(--movie-columns), minmax(0, 1fr)); gap: 38px 24px; }
 @media (max-width: 540px) { .section-heading { align-items: start; flex-direction: column; gap: 4px; } .movie-grid { gap: 30px 16px; } .section-heading h2 { font-size: 28px; } }
-@media (max-width: 360px) { .movie-grid { grid-template-columns: 1fr; } }

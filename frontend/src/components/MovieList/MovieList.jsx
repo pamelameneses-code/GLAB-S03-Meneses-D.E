@@ -1,6 +1,9 @@
+import useWindowSize from '../../hooks/useWindowSize.js'
 import MovieCard from '../MovieCard/MovieCard.jsx'
 import './MovieList.css'
 export default function MovieList({ movies, searchQuery, favoriteIds, onToggleFavorite }) {
+  const { width } = useWindowSize()
+  const columns = width <= 360 ? 1 : width <= 900 ? 2 : 4
   const normalizedQuery = searchQuery.trim().toLowerCase()
   const filteredMovies = movies.filter((movie) => movie.title.toLowerCase().includes(normalizedQuery))
 
@@ -14,7 +17,7 @@ export default function MovieList({ movies, searchQuery, favoriteIds, onToggleFa
         </div>
       </div>
       {filteredMovies.length > 0 ? (
-        <div className="movie-grid">
+        <div className="movie-grid" style={{ "--movie-columns": columns }}>
           {filteredMovies.map((movie) => (
             <MovieCard
               key={movie.id}

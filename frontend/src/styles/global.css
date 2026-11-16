@@ -10,3 +10,7 @@ input[type='search'] { padding: 13px 14px; color: #eef1f6; background: #111c2c; 
 input::placeholder { color: #a5b0c0; }
 .form-hint { color: var(--muted); font-size: 11px; line-height: 1.5; margin: 9px 0 0; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+
+.favorite-count { color: var(--accent); font-weight: 600; font-size: .875rem; white-space: nowrap; }
+.site-header { flex-wrap: wrap; }
+.movie-search + .button { margin-top: 12px; }
